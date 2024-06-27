@@ -1,0 +1,126 @@
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>抑制购买欲望</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>抑制购买欲望</h1>#}
+{#    <form method="POST" onsubmit="showLoading()">#}
+{#        <label for="product">请输入您想购买的商品名称：</label>#}
+{#        <input type="text" name="product" id="product" required>#}
+{#        <button type="submit">提交</button>#}
+{#    </form>#}
+{#    {% if answer %}#}
+{#    <h2>抑制购买欲望的理由：</h2>#}
+{#    <p>{{ answer }}</p>#}
+{#    {% endif %}#}
+{##}
+{#    <div id="loading" style="display:none;">请等待...</div>#}
+{#    <script>#}
+{#        function showLoading() {#}
+{#            document.getElementById('loading').style.display = 'block';#}
+{#        }#}
+{#        function clearInput() {#}
+{#            document.getElementById('product').value = '';#}
+{#        }#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抑制购买欲望</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("../static/13.png");
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* Center-align text for all elements */
+        }
+        h1 {
+            color: #2f0664;
+            margin-bottom: 30px;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block; /* Make form centered */
+            max-width: 100%;
+        }
+        label {
+            display: block; /* Each label on its line */
+            margin-bottom: 8px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px); /* Full width minus padding */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #loading {
+            margin-top: 20px;
+            color: #ffffff;
+        }
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            form {
+                width: auto;
+                margin: 0 10px; /* Adjust form margins on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>省钱助手:)</h1>
+    <form method="POST" onsubmit="showLoading()">
+        <label for="product">想买点啥？</label>
+        <input type="text" name="product" id="product" required>
+        <button type="submit">提交</button>
+    </form>
+    <div id="loading" style="display:none;">请等待...</div>
+    {% if answer %}
+    <div style="margin-top: 20px; text-align: left;">
+        <h2>抑制购买欲望的理由：</h2>
+        <p>{{ answer }}</p>
+    </div>
+    {% endif %}
+    <script>
+         function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+        function clearInput() {
+            document.getElementById('product').value = '';
+        }
+    </script>
+</body>
+</html>
